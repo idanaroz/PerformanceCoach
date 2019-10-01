@@ -5,7 +5,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-public class Exercise implements Serializable {
+public class Exercise {
     private Integer id; // exercise id
 
     private Integer challengeId; // foregin key
@@ -27,7 +27,6 @@ public class Exercise implements Serializable {
         this.id = id;
     }
 
-    @Id
     public Integer getChallengeId() {
         return challengeId;
     }
