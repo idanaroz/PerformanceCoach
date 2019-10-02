@@ -8,8 +8,13 @@ public class DashBoardController {
 
     //    @RequestMapping(value = "/", method = RequestMethod.GET)
     @GetMapping("/")
-    public String rootView(){
+    public String rootView() {
         return "index";
+    }
+
+    @GetMapping("/dashboard")
+    public String dashboard() {
+        return "dashboard";
     }
 
 }
