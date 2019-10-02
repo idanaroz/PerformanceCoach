@@ -1,10 +1,11 @@
 package com.example.PerformanceCoach.domain;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.example.PerformanceCoach.security.Authority;
+
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="Users")
@@ -14,8 +15,10 @@ public class User {
     private String username;
     private String password;
     private String name;
+    private Set<Authority> authorities = new HashSet<>();
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
         return id;
     }
@@ -48,11 +51,14 @@ public class User {
         this.name = name;
     }
 
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
+    public Set<Authority> getAuthorities() {
+        return authorities;
+    }
 
-
-
-
-
+    public void setAuthorities(Set<Authority> authorities) {
+        this.authorities = authorities;
+    }
 
 
 }
