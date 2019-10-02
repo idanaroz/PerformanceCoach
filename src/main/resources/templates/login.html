@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
 <head>
-    <title>FreshVotes Login</title>
+    <title>Performance Coach Login</title>
 </head>
 <body>
 <form action="" method="post">
+    <input th:name="${_csrf.parameterName}" th:value="${_csrf.token}" type="hidden"/>
     <fieldset>
         <legend>Please Login</legend>
         <!-- use param.error assuming FormLoginConfigurer#failureUrl contains the query parameter error -->

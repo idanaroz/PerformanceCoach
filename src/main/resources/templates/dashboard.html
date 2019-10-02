@@ -1,5 +1,5 @@
 <!Doctype html>
-<html>
+<html xmlns:th="http://thymeleaf.org">
 
 <head>
     <title>Perfomance Dashboard</title>
@@ -7,7 +7,12 @@
 
 <body>
 <h1> Performance Coach Dashboard</h1>
-<a href="/logout"> logout</a>
+
+<form action="/logout" method="post">
+    <input th:name="${_csrf.parameterName}" th:value="${_csrf.token}" type="hidden"/>
+    <button type="submit">Logout</button>
+</form>
+
 </body>
 
 
