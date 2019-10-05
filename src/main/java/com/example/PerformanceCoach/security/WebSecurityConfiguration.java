@@ -40,14 +40,14 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers("/admin/**").hasRole("ADMIN")
-                .anyRequest().hasRole("USER").and()
-                .formLogin()
-                .loginPage("/login")
-                .defaultSuccessUrl("/dashboard")
-                .permitAll()
-                .and()
-                .logout()
-                .logoutUrl("/logout").permitAll();
+                .antMatchers("/admin/**").hasRole("ADMIN");
+//                .anyRequest().hasRole("USER").and()
+//                .formLogin()
+//                .loginPage("/login")
+//                .defaultSuccessUrl("/dashboard")
+//                .permitAll()
+//                .and()
+//                .logout()
+//                .logoutUrl("/logout").permitAll();
     }
 }
